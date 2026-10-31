@@ -9,7 +9,7 @@ export type CartaGrupo = {
 
 /**
  * No hay carta ni precios publicados.
- * Los grupos siguen el concepto que el local ha comunicado (bio, posts e inauguración).
+ * Los grupos siguen el concepto que el local ha comunicado (bio y posts).
  * No son platos con nombre propio ni precios.
  */
 export const carta: CartaGrupo[] = [
@@ -26,7 +26,7 @@ export const carta: CartaGrupo[] = [
       },
       {
         nombre: 'Tostadas',
-        texto: 'En la inauguración hubo tostas. Los panes y los acompañamientos [por confirmar].',
+        texto: 'Los panes y los acompañamientos [por confirmar].',
       },
       {
         nombre: 'Dulce',
@@ -57,7 +57,7 @@ export const carta: CartaGrupo[] = [
     silabas: 'CON·SER·VA',
     titulo: 'Conservas, tapas y gildas',
     intro:
-      'La bio lo deja en cuatro palabras: conservas, tapas, vinos y vermut. En la inauguración salieron gildas y tostas.',
+      'La bio lo deja en cuatro palabras: conservas, tapas, vinos y vermut.',
     items: [
       {
         nombre: 'Gildas',

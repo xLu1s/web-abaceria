@@ -17,7 +17,6 @@ export const site = {
     'https://www.google.com/maps/place/La+Abacer%C3%ADa+de+San+Lorenzo/@38.6972566,-0.4749425,17z',
   instagram: 'https://www.instagram.com/laabaceriadesanlorenzo/',
   instagramHandle: '@laabaceriadesanlorenzo',
-  opened: '23 de octubre de 2026',
   raeUrl: 'https://dle.rae.es/abacer%C3%ADa',
 } as const;
 

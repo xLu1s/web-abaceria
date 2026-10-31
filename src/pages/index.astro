@@ -11,6 +11,9 @@ import limones from '../assets/photos/azulejo-limones.jpg';
 import chacina from '../assets/photos/chacina.jpg';
 import desayunos from '../assets/photos/desayunos.jpg';
 import grabado from '../assets/photos/grabado-chacina.jpg';
+import fachada from '../assets/photos/fachada-noche.jpg';
+import gildas from '../assets/photos/gildas.jpg';
+import tirador from '../assets/photos/tirador.jpg';
 
 const title = 'La Abacería de San Lorenzo · Alcoy | Desayunos, tapas, conservas y vermut';
 const description =
@@ -78,16 +81,15 @@ const jsonLd = {
         Inauguración el {site.opened}. Desayunos todos los días, de 8:00 a 12:00.
       </p>
     </div>
-    <figure class="hero-photo">
+    <figure class="hero-photo hero-fachada">
       <Image
-        src={despensa}
-        alt="Panel de azulejo de La Abacería de San Lorenzo en Alcoy: arco de cítricos, conservas y el nombre del local"
+        src={fachada}
+        alt="Rótulo luminoso de La Abacería de San Lorenzo de noche, en la calle San Lorenzo de Alcoy"
         widths={[640, 960, 1200]}
         sizes="(min-width: 960px) 48vw, 100vw"
         loading="eager"
         fetchpriority="high"
       />
-      <figcaption class="hero-caption">Azulejo del local · Alcoy</figcaption>
     </figure>
   </section>
 
@@ -198,27 +200,36 @@ const jsonLd = {
             src={chacina}
             alt="Mural de azulejo con el rótulo Chacina, embutidos y ristras, sobre boiserie verde en La Abacería de San Lorenzo, Alcoy"
             widths={[480, 800, 1000]}
-            sizes="(min-width: 960px) 55vw, 100vw"
+            sizes="(min-width: 960px) 50vw, 100vw"
           />
           <figcaption>Mural de la chacina</figcaption>
         </figure>
         <figure class="shot-b">
           <Image
-            src={despensa}
-            alt="Arco de azulejo con conservas, balanza y el nombre La Abacería de San Lorenzo"
-            widths={[480, 800]}
-            sizes="(min-width: 960px) 40vw, 100vw"
+            src={gildas}
+            alt="Gildas de aceituna, anchoa y piparra en platos ovalados con el nombre del local"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
           />
-          <figcaption>Despensa de azulejo</figcaption>
+          <figcaption>Gildas</figcaption>
         </figure>
         <figure class="shot-c">
           <Image
-            src={limones}
-            alt="Azulejo de limones y azahar con el nombre del local"
-            widths={[480, 800]}
-            sizes="(min-width: 960px) 40vw, 100vw"
+            src={tirador}
+            alt="Tirador de cerveza con columna de azulejo azul y blanco, en la barra de Alcoy"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
           />
-          <figcaption>Limones en el azulejo</figcaption>
+          <figcaption>Cerveza de grifo</figcaption>
+        </figure>
+        <figure class="shot-d">
+          <Image
+            src={despensa}
+            alt="Arco de azulejo con conservas, balanza y el nombre La Abacería de San Lorenzo"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+          />
+          <figcaption>Despensa de azulejo</figcaption>
         </figure>
       </div>
       <p class="hours-note">

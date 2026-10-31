@@ -1,0 +1,23 @@
+---
+import logo from '../assets/logo-perfil.jpg';
+
+interface Props {
+  class?: string;
+  alt?: string;
+}
+
+const {
+  class: className = 'logo',
+  alt = 'La Abacería de San Lorenzo, Alcoy. Logo SVG [por confirmar]',
+} = Astro.props;
+---
+
+<!-- Logo SVG [por confirmar]. Lettering propio del perfil de Instagram: no reconstruir con fuentes. -->
+<img
+  class={className}
+  src={logo.src}
+  width={logo.width}
+  height={logo.height}
+  alt={alt}
+  decoding="async"
+/>

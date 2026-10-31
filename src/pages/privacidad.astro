@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const title = 'Privacidad · La Abacería de San Lorenzo · Alcoy';
+const description =
+  'Privacidad de la propuesta web de La Abacería de San Lorenzo en Alcoy. Esta demo no recoge formularios ni email.';
+---
+
+<Base title={title} description={description}>
+  <article class="wrap prose">
+    <p class="eyebrow">Alcoy</p>
+    <h1>Privacidad</h1>
+    <p>
+      Esta propuesta web de {site.name} en Alcoy no tiene formulario, alta de usuarios ni boletín. No hay email
+      publicado del local: [por confirmar].
+    </p>
+    <p>
+      Reservar es una llamada al {site.phoneDisplay}. La llamada la gestiona tu operador y el teléfono del local, no
+      esta página.
+    </p>
+    <p>
+      El mapa incrustado carga Google Maps al abrir la sección «Dónde estamos». Instagram se abre en su propio sitio,
+      solo si pulsas el enlace. Responsable del tratamiento del negocio: [por confirmar].
+    </p>
+  </article>
+</Base>

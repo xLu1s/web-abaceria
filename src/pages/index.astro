@@ -1,0 +1,298 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Hours from '../components/Hours.astro';
+import Logo from '../components/Logo.astro';
+import { url } from '../lib/url';
+import { site, phoneHref } from '../data/site';
+import { carta } from '../data/carta';
+import despensa from '../assets/photos/azulejo-despensa.jpg';
+import limones from '../assets/photos/azulejo-limones.jpg';
+import chacina from '../assets/photos/chacina.jpg';
+import desayunos from '../assets/photos/desayunos.jpg';
+import grabado from '../assets/photos/grabado-chacina.jpg';
+import fachada from '../assets/photos/fachada-noche.jpg';
+import gildas from '../assets/photos/gildas.jpg';
+import tirador from '../assets/photos/tirador.jpg';
+
+const title = 'La Abacería de San Lorenzo · Alcoy | Desayunos, tapas, conservas y vermut';
+const description =
+  'La Abacería de San Lorenzo en Alcoy (Alcoi): desayunos todos los días, conservas, tapas, chacina, vinos y vermut. Calle San Lorenzo, 39.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: site.name,
+  slogan: site.claim,
+  servesCuisine: ['Tapas', 'Spanish', 'Desayunos'],
+  image: new URL(url('og.jpg'), Astro.site).href,
+  url: new URL(url(), Astro.site).href,
+  telephone: site.phoneTel,
+  acceptsReservations: true,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.street,
+    addressLocality: site.locality,
+    postalCode: site.postalCode,
+    addressRegion: site.region,
+    addressCountry: site.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.lat,
+    longitude: site.lng,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '08:00',
+      closes: '12:00',
+      description: 'Desayunos. Horario de la bio de Instagram; horario oficial por confirmar.',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
+      opens: '13:00',
+      closes: '00:00',
+      description: 'Comidas y cenas según la bio de Instagram. Horario oficial por confirmar.',
+    },
+  ],
+  sameAs: [site.instagram],
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <section class="hero" aria-label="Presentación">
+    <div class="hero-copy">
+      <Logo class="logo logo-lg" />
+      <p class="eyebrow" style="margin-top:1.4rem">Alcoy · Alcoi</p>
+      <h1>Lo de siempre, <em>como nos gusta ahora</em></h1>
+      <svg class="rule" viewBox="0 0 160 14" aria-hidden="true">
+        <path d="M2 9 C 28 3, 52 13, 80 7 S 124 2, 158 8"></path>
+      </svg>
+      <p class="eyebrow hero-tag">{site.tagline}</p>
+      <div class="hero-actions">
+        <a class="btn" href={phoneHref}>Reservar</a>
+        <a class="btn btn-ghost" href={url('carta/')}>Ver carta</a>
+      </div>
+      <p class="hero-meta">
+        <strong>{site.streetEs}</strong>, {site.postalCode} {site.localityEs}.
+        Inauguración el {site.opened}. Desayunos todos los días, de 8:00 a 12:00.
+      </p>
+    </div>
+    <figure class="hero-photo hero-fachada">
+      <Image
+        src={fachada}
+        alt="Rótulo luminoso de La Abacería de San Lorenzo de noche, en la calle San Lorenzo de Alcoy"
+        widths={[640, 960, 1200]}
+        sizes="(min-width: 960px) 48vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+  </section>
+
+  <section class="definicion" id="concepto" aria-labelledby="titulo-concepto">
+    <div class="definicion-frame">
+      <p class="eyebrow">Según la R.A.E.</p>
+      <h2 class="silabas" id="titulo-concepto">A·BA·CE·RÍ·A</h2>
+      <p class="rae"><em>De abacero.</em></p>
+      <p class="rae">
+        Puesto o tienda donde se venden al por menor aceite, vinagre, legumbres secas, bacalao, etc.
+      </p>
+      <a class="eyebrow rae-link" href={site.raeUrl}>Definición en la RAE</a>
+    </div>
+    <p class="definicion-quote">
+      «El lugar donde el producto de siempre se come y se disfruta como nos gusta ahora.»
+    </p>
+  </section>
+
+  <section class="section" id="dia" aria-labelledby="titulo-dia">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Momentos del día</p>
+        <h2 id="titulo-dia">El día, <em>en tres tiempos</em></h2>
+      </div>
+      <div class="momentos-grid">
+        <article class="momento momento-lead">
+          <div class="momento-foto">
+            <Image
+              src={desayunos}
+              alt="Ilustración de limones y azahar: Los desayunos de La Abacería de San Lorenzo"
+              widths={[480, 800]}
+              sizes="(min-width: 960px) 50vw, 100vw"
+            />
+          </div>
+          <p class="eyebrow cuando">Lunes a domingo</p>
+          <h3>Desayunos</h3>
+          <p class="hora">8:00–12:00</p>
+          <p>Ven a probar nuestros desayunos y empieza el día como se merece.</p>
+        </article>
+        <article class="momento">
+          <p class="eyebrow cuando">Viernes a domingo</p>
+          <h3>Comidas y cenas</h3>
+          <p class="hora">13:00–00:00</p>
+          <p>Conservas, tapas, chacina, vinos y vermut, de la tarde a la noche.</p>
+        </article>
+        <article class="momento">
+          <p class="eyebrow cuando">Jueves</p>
+          <h3>Cenas</h3>
+          <p class="hora">Desde las 18:00</p>
+          <p class="tbc">Cierre [por confirmar]</p>
+        </article>
+      </div>
+      <details class="hours-note">
+        <summary>Horario oficial [por confirmar]</summary>
+        <p>
+          Este es el horario de la bio de Instagram. Google Maps no dice lo mismo: el sábado figura de 8:00 a 00:00,
+          y el domingo, lunes y martes solo de 8:00 a 12:00. El miércoles, jueves y viernes no se veían en la ficha.
+          El domingo 1 de noviembre de 2026 aparecía como festivo.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Frase del local">
+    <p>Sabores de siempre para gente de ahora.</p>
+  </section>
+
+  <section class="section" id="carta" aria-labelledby="titulo-carta">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">La carta</p>
+        <h2 id="titulo-carta">Lo que se pide <em>en la mesa</em></h2>
+        <p style="margin-top:0.9rem">
+          No hay carta ni precios publicados. Esto es una guía del concepto. Precios en el local · [por confirmar].
+        </p>
+      </div>
+      <div class="carta-grid">
+        {
+          carta.map((grupo) => (
+            <a class="carta-card" href={`${url('carta/')}#${grupo.id}`}>
+              <p class="silabas">{grupo.silabas}</p>
+              <h3>{grupo.titulo}</h3>
+              <p>{grupo.items.map((item) => item.nombre).join(' · ')}</p>
+            </a>
+          ))
+        }
+      </div>
+      <div class="carta-foot">
+        <p class="tbc">Precios en el local · [por confirmar]</p>
+        <a class="btn" href={url('carta/')}>Ver la carta</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="local" style="padding-top:0" aria-labelledby="titulo-local">
+    <div class="wrap-wide">
+      <div class="section-head local-head">
+        <p class="eyebrow">El local</p>
+        <h2 id="titulo-local">Ven y descubre <span class="script">cada rincón</span></h2>
+        <p style="margin-top:0.9rem;max-width:40rem">
+          Azulejo de cítricos, boiserie verde botella y la chacina a la vista. En el número 39 de la calle San Lorenzo,
+          en el centro de Alcoy.
+        </p>
+      </div>
+      <div class="gallery">
+        <figure class="shot-a">
+          <Image
+            src={chacina}
+            alt="Mural de azulejo con el rótulo Chacina, embutidos y ristras, sobre boiserie verde en La Abacería de San Lorenzo, Alcoy"
+            widths={[480, 800, 1000]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+          />
+          <figcaption>Mural de la chacina</figcaption>
+        </figure>
+        <figure class="shot-b">
+          <Image
+            src={gildas}
+            alt="Gildas de aceituna, anchoa y piparra en platos ovalados con el nombre del local"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+          />
+          <figcaption>Gildas</figcaption>
+        </figure>
+        <figure class="shot-c">
+          <Image
+            src={tirador}
+            alt="Tirador de cerveza con columna de azulejo azul y blanco, en la barra de Alcoy"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+          />
+          <figcaption>Cerveza de grifo</figcaption>
+        </figure>
+        <figure class="shot-d">
+          <Image
+            src={despensa}
+            alt="Arco de azulejo con conservas, balanza y el nombre La Abacería de San Lorenzo"
+            widths={[480, 800, 1080]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+          />
+          <figcaption>Despensa de azulejo</figcaption>
+        </figure>
+      </div>
+      <p class="hours-note">
+        Hay escalera a otra zona. Capacidad, terraza y si venden producto para llevar: [por confirmar].
+        Los archivos originales de las ilustraciones, también [por confirmar].
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="visita" aria-labelledby="titulo-visita">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="eyebrow">Reservas</p>
+        <h2 id="titulo-visita">Una llamada, <em>y la mesa</em></h2>
+        <p style="margin:0.9rem 0 1rem">El único canal publicado es el teléfono. No hay email en las fuentes públicas.</p>
+        <a class="phone" href={phoneHref}>{site.phoneDisplay}</a>
+        <div style="margin-top:1.1rem">
+          <a class="btn" href={phoneHref}>Llamar para reservar</a>
+        </div>
+        <Hours />
+        <p class="city">A L C O Y</p>
+        <p>
+          {site.street}<br />
+          {site.postalCode} {site.locality} ({site.region})<br />
+          También {site.streetEs}
+        </p>
+        <p style="margin-top:0.8rem">
+          <a class="text-link" href={site.mapsUrl}>Abrir en Google Maps</a>
+        </p>
+      </div>
+      <div class="map">
+        <iframe
+          title="Mapa de La Abacería de San Lorenzo, calle San Lorenzo 39, Alcoy"
+          src="https://maps.google.com/maps?q=38.6972566,-0.4749425&z=17&hl=es&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="instagram" aria-labelledby="titulo-ig" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Instagram</p>
+        <h2 id="titulo-ig">{site.instagramHandle}</h2>
+      </div>
+      <div class="ig-grid">
+        <a href="https://www.instagram.com/p/DfEW_YFjJoT/">
+          <Image src={desayunos} alt="Post de desayunos con limones, en el Instagram del local" widths={[400, 700]} sizes="(min-width: 760px) 30vw, 100vw" />
+          <span class="eyebrow">Desayunos · 28/10/2026</span>
+        </a>
+        <a href="https://www.instagram.com/p/De3wiUrjbDt/">
+          <Image src={grabado} alt="Grabado de embutidos: Sabores de siempre para gente de ahora" widths={[400, 700]} sizes="(min-width: 760px) 30vw, 100vw" />
+          <span class="eyebrow">Chacina · 24/10/2026</span>
+        </a>
+        <a href="https://www.instagram.com/reel/Dew44Gysc5x/">
+          <Image src={limones} alt="Azulejo de limones publicado en Instagram" widths={[400, 700]} sizes="(min-width: 760px) 30vw, 100vw" />
+          <span class="eyebrow">Azulejo · 21/10/2026</span>
+        </a>
+      </div>
+      <p style="margin-top:1.2rem">
+        <a class="btn btn-ghost" href={site.instagram}>Ver Instagram</a>
+      </p>
+    </div>
+  </section>
+</Base>

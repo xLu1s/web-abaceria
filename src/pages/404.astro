@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+
+const title = 'Página no encontrada · La Abacería de San Lorenzo · Alcoy';
+const description = 'Esa página no está en la web de La Abacería de San Lorenzo en Alcoy.';
+---
+
+<Base title={title} description={description}>
+  <article class="wrap prose">
+    <p class="eyebrow">Alcoy</p>
+    <h1>Esta página no está</h1>
+    <p>El enlace no corresponde a ninguna sección de La Abacería de San Lorenzo en Alcoy.</p>
+    <p style="margin-top:1.2rem">
+      <a class="btn" href={url()}>Volver al inicio</a>
+    </p>
+  </article>
+</Base>

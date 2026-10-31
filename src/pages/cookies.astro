@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Cookies · La Abacería de San Lorenzo · Alcoy';
+const description =
+  'Cookies de la propuesta web de La Abacería de San Lorenzo en Alcoy. La página no instala cookies propias de analítica.';
+---
+
+<Base title={title} description={description}>
+  <article class="wrap prose">
+    <p class="eyebrow">Alcoy</p>
+    <h1>Cookies</h1>
+    <p>
+      Esta web no instala cookies propias ni de analítica. Las fuentes tipográficas van en el propio sitio, sin
+      llamar a Google Fonts.
+    </p>
+    <p>
+      El mapa de la portada es un iframe de Google Maps. Al cargarlo, Google puede guardar cookies según su política.
+      Si no quieres eso, usa el enlace «Abrir en Google Maps» y no hace falta mirar el recuadro.
+    </p>
+    <p>Política de cookies del negocio, cuando exista la web oficial: [por confirmar].</p>
+  </article>
+</Base>

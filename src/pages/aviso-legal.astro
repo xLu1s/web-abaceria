@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const title = 'Aviso legal · La Abacería de San Lorenzo · Alcoy';
+const description =
+  'Aviso legal de la propuesta web de La Abacería de San Lorenzo en Alcoy. Titular y datos societarios por confirmar.';
+---
+
+<Base title={title} description={description}>
+  <article class="wrap prose">
+    <p class="eyebrow">Alcoy</p>
+    <h1>Aviso legal</h1>
+    <p>
+      Esta página es una propuesta de sitio para {site.name}, en {site.street}, {site.postalCode} {site.locality}
+      ({site.region}). No es la web oficial del negocio: a 31 de octubre de 2026 no tenían sitio propio publicado.
+    </p>
+    <p>
+      Titular, NIF y razón social: [por confirmar]. No se inventan aquí. El teléfono de reservas publicado es el
+      {site.phoneDisplay}.
+    </p>
+    <p>
+      Los textos de horario, carta y producto salen de fuentes públicas (Instagram, Google Maps y prensa local) y
+      están marcados cuando no cuadran. Las fotos y las piezas gráficas son las que el local ha publicado en
+      Instagram. Los archivos originales y sus derechos: [por confirmar].
+    </p>
+    <p>
+      Hay otra casa, ya cerrada, que se llamó Antigua Abacería de San Lorenzo y estaba en Sevilla. No tiene relación
+      con este local de Alcoy.
+    </p>
+  </article>
+</Base>

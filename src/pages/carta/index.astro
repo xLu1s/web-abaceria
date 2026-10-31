@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+import { site, phoneHref } from '../../data/site';
+import { carta } from '../../data/carta';
+import grabado from '../../assets/photos/grabado-chacina.jpg';
+
+const title = 'Carta · La Abacería de San Lorenzo · Alcoy';
+const description =
+  'Carta orientativa de La Abacería de San Lorenzo en Alcoy: desayunos, chacina, conservas, gildas y vermut. Sin precios: se confirman en el local.';
+---
+
+<Base title={title} description={description}>
+  <header class="carta-hero">
+    <div class="carta-hero-copy">
+      <p class="eyebrow">Alcoy · carta orientativa</p>
+      <h1>La carta <em>de la casa</em></h1>
+      <p style="margin-top:1rem;max-width:36rem">
+        Chacina, conservas, gildas, vermut y desayunos. No hay carta pública ni precios: lo de abajo describe el
+        concepto, no una lista cerrada.
+      </p>
+      <div class="hero-actions" style="margin-top:1.4rem;margin-bottom:0">
+        <a class="btn" href={phoneHref}>Reservar</a>
+        <a class="btn btn-ghost" href={url('#visita')}>Dónde estamos</a>
+      </div>
+    </div>
+    <div class="carta-hero-photo">
+      <Image
+        src={grabado}
+        alt="Grabado de embutidos sobre amarillo: Sabores de siempre para gente de ahora"
+        widths={[640, 960, 1200]}
+        sizes="(min-width: 960px) 50vw, 100vw"
+        loading="eager"
+      />
+    </div>
+  </header>
+
+  <div class="carta-banner">
+    <div class="wrap">
+      <p>
+        Precios en el local · [por confirmar]. Alérgenos: la información se consulta en el local · [por confirmar].
+      </p>
+    </div>
+  </div>
+
+  {
+    carta.map((grupo) => (
+      <section class="menu-section" id={grupo.id} aria-labelledby={`carta-${grupo.id}`}>
+        <div class="wrap">
+          <p class="eyebrow">{grupo.silabas}</p>
+          <h2 id={`carta-${grupo.id}`}>
+            {grupo.titulo}
+            {grupo.script && <span class="script">{grupo.script}</span>}
+          </h2>
+          <p class="menu-intro">{grupo.intro}</p>
+          <div class="dishes">
+            {grupo.items.map((item) => (
+              <article class="dish">
+                <h3>{item.nombre}</h3>
+                <p>{item.texto}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section" id="visita">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:end;justify-content:space-between">
+      <div>
+        <p class="eyebrow">Reservas en Alcoy</p>
+        <h2>¿Vienes?</h2>
+        <p style="margin-top:0.6rem">{site.streetEs}, {site.postalCode} {site.localityEs}</p>
+      </div>
+      <a class="btn" href={phoneHref}>Llamar al {site.phoneDisplay}</a>
+    </div>
+  </section>
+</Base>

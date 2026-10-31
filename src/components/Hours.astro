@@ -1,0 +1,23 @@
+---
+import { hours, hoursNotice } from '../data/site';
+---
+
+<dl class="hours">
+  {
+    hours.map((slot) => (
+      <div>
+        <dt>{slot.label}</dt>
+        <dd>
+          {slot.when}
+          <br />
+          {slot.time}
+          {slot.note ? <><br /><span class="tbc">{slot.note}</span></> : null}
+        </dd>
+      </div>
+    ))
+  }
+</dl>
+<details class="hours-note">
+  <summary>Horario oficial [por confirmar]</summary>
+  <p>{hoursNotice}</p>
+</details>

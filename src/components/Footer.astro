@@ -1,0 +1,53 @@
+---
+import Logo from './Logo.astro';
+import { url } from '../lib/url';
+import { site, phoneHref, hours } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <Logo class="logo logo-stamp" alt="" />
+      <p class="city">A L C O Y</p>
+      <p>
+        {site.street}<br />
+        {site.postalCode} {site.locality} ({site.region})<br />
+        {site.streetEs}
+      </p>
+    </div>
+    <div>
+      <p class="eyebrow">Horario</p>
+      <ul class="footer-list">
+        {
+          hours.map((slot) => (
+            <li>
+              {slot.label}: {slot.when.toLowerCase()}, {slot.time}
+              {slot.note ? ` · ${slot.note}` : ''}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="tbc" style="margin-top:0.8rem;color:var(--oro)">Horario oficial [por confirmar]</p>
+    </div>
+    <div>
+      <p class="eyebrow">Reservas</p>
+      <ul class="footer-list">
+        <li><a href={phoneHref}>{site.phoneDisplay}</a></li>
+        <li><a href={site.instagram}>{site.instagramHandle}</a></li>
+        <li><a href={site.mapsUrl}>Cómo llegar</a></li>
+        <li><a href={url('carta/')}>Ver la carta</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <nav class="legal-links" aria-label="Información legal">
+      <a href={url('aviso-legal/')}>Aviso legal</a>
+      <a href={url('privacidad/')}>Privacidad</a>
+      <a href={url('cookies/')}>Cookies</a>
+    </nav>
+    <p class="fine">
+      Propuesta de web con datos públicos a 31 de octubre de 2026. No es el sitio oficial: La Abacería de San Lorenzo
+      en Alcoy aún no tiene web propia. Email, carta y horario cerrado están marcados como [por confirmar].
+    </p>
+  </div>
+</footer>
